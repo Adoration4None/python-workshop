@@ -4,12 +4,15 @@ from random import randint
 def clearScreen():
     os.system("cls" if os.name == "nt" else "clear")
 
-def playerPlays():
-    print("\n0: Rock "     + "\U0000270A")  # ✊
-    print("1: Paper "    + "\U0000270B")  # ✋
-    print("2: Scissors " + "\U0000270C")  # ✌️
+def validChoice(playerChoice, moves):
+    return playerChoice in moves.keys()
 
-    return input("Enter your choice: ")
+def playerPlays():
+    print("\n0: Rock \U0000270A")  # ✊
+    print("1: Paper \U0000270B")  # ✋
+    print("2: Scissors \U0000270C")  # ✌️
+
+    return input("Enter your choice [0/1/2]: ")
 
 def machinePlays():
     return str( randint(0, 2) )
@@ -42,6 +45,11 @@ playing = True
 
 while playing:
     playerChoice = playerPlays()
+    
+    while not validChoice(playerChoice, moves):
+        print("\nPlease enter a valid option [0/1/2]")
+        playerChoice = playerPlays()
+
     machineChoice = machinePlays()
 
     print(f"\n[You]: {moves[playerChoice]}")
