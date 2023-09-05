@@ -1,4 +1,4 @@
-import os
+# import os
 from random import randint
 
 # ------------------------------ Movimientos -----------------------------------------
@@ -11,8 +11,8 @@ moves = {
 # ------------------------------ Funciones -----------------------------------------
 
 
-def clearScreen():
-    os.system("cls" if os.name == "nt" else "clear")
+# def clearScreen():
+#     os.system("cls" if os.name == "nt" else "clear")
 
 
 def validChoice(playerChoice, moves):
@@ -44,8 +44,6 @@ def evaluate(playerChoice, machineChoice):
 
     return "¡Es un empate!"
 
-# ------------------------------ Instrucciones Main -----------------------------------------
-
 
 def menu():
     playing = True
@@ -63,14 +61,18 @@ def menu():
         print(f"[Computador]: {moves[machineChoice]}")
 
         print(evaluate(playerChoice, machineChoice))
-        playing = input("\n¿Quieres jugar de nuevo? [s/n] ") == "s"
-        clearScreen()
+        playing = input("\n¿Quieres jugar de nuevo? [s/n] ")
+        playing = True if playing == "s" else print("Gracias por jugar")
+        print("")
+
+        # clearScreen()
 
 
 def run_game():
-    clearScreen()
+    # clearScreen()
     menu()
 
 
+# ------------------------------ Entrypoint -----------------------------------------
 if __name__ == "__main__":
     run_game()
