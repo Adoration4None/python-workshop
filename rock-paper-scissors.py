@@ -62,7 +62,7 @@ def menu():
 
         print(evaluate(playerChoice, machineChoice))
         playing = input("\n¿Quieres jugar de nuevo? [s/n] ")
-        playing = True if playing == "s" else print("Gracias por jugar")
+        playing = True if playing == "s" else "Gracias por jugar"
         print("")
 
         # clearScreen()
