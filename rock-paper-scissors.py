@@ -14,7 +14,7 @@ def clearScreen():
     os.system("cls" if os.name == "nt" else "clear")
 
 
-def validChoice(playerChoice, moves):
+def validChoice(playerChoice):
     return playerChoice in moves.keys()
 
 
@@ -51,7 +51,7 @@ def menu():
     while playing:
         playerChoice = playerPlays()
 
-        while not validChoice(playerChoice, moves):
+        while not validChoice(playerChoice):
             print("\nIngresa una opción válida, por favor [0/1/2]")
             playerChoice = playerPlays()
 
